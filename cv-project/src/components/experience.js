@@ -3,9 +3,8 @@ import React from 'react';
 
 export class Experience extends React.Component {
     render() {
-        return ( 
-            <div className='experience'>
-                <span className='info'>Relevant Experience</span>
+        function job () {
+            return (
                 <ul>
                     <li>
                         <label>Company Name</label>
@@ -21,13 +20,20 @@ export class Experience extends React.Component {
                     </li>
                     <li>
                         <label>Starting Date</label>
-                        <input style={{width:'20%'}}></input>
+                        <input style={{width:'25%'}} type='date'></input>
                     </li>
                     <li>
                         <label>Ending Date</label>
-                        <input style={{width:'20%'}}></input>
+                        <input style={{width:'25%'}} type='date'></input>
                     </li>
                 </ul>
+            )
+        }
+
+        return ( 
+            <div className='experience'>
+                <span className='info'>Relevant Experience</span>
+                {job()}
             </div>
         )
     }

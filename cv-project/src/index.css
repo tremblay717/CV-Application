@@ -35,19 +35,21 @@ body {
   color: #61dafb;
   justify-content: space-between;
   gap: 20px;
-  width: 35%;
+  width: 30%;
   border-radius: 10px;
   border: solid #61dafb;
   border-width: 1.5px;
 }
 
 .cvInfo {
+  display: flex;
+  flex-direction: column;
   padding: 2%;
   margin: 1%;
   color: #61dafb;
   justify-content: space-between;
-  gap: 20px;
-  width: 65%;
+  gap: 10px;
+  width: 100%;
   border-radius: 10px;
   border: solid #61dafb;
   border-width: 1.5px;
@@ -84,7 +86,7 @@ label {
 }
 
 input {
-  width: 75%;
+  width: 90%;
   height: 25px;
   /* font-size: 20px; */
 }
@@ -93,4 +95,26 @@ img {
   border-radius: 8px;
 }
 
+.submitInfos {
+  background-color: #61dafb;
+  border-radius: 10px;
+  border: solid #20232a;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  color:#20232a;
+  cursor: pointer;
+  font-weight: 800;
+}
 
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 25px;
+}
+
+.emailPhone {
+  display: flex;
+  gap: 20px;
+}

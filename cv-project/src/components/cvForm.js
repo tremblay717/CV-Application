@@ -11,6 +11,7 @@ export class CvForm extends React.Component {
                 <GenInfo/>
                 <Education/>
                 <Experience/>
+                <button className='submitInfos'>Submit Infos</button>
             </div>
         )
     }

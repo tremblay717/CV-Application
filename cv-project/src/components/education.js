@@ -1,26 +1,26 @@
 import React from 'react';
-// import './index.css';
+import { Schools } from './schools';
+import addSchool from './addSchool';
+
+
 
 export class Education extends React.Component {
-    render() {
-        return ( 
-            <div className='topInfo'>
-                <span className='info'>Education</span>
-                <ul>
-                    <li>
-                        <label>School Name</label>
-                        <input style={{width:'40%'}}></input>
-                    </li>
-                    <li>
-                        <label>Title of Study</label>
-                        <input style={{width:'40%'}}></input>
-                    </li>
-                    <li>
-                        <label>Graduation  Date</label>
-                        <input style={{width:'40%'}}></input>
-                    </li>
-                </ul>
-            </div>
-        )
+
+        render() {
+   
+            const newSchool = event => {
+                document.getElementById('education').appendChild(addSchool())
+            } 
+            
+            return ( 
+                <div className='education' id='education'>
+                    <div style={{display:'flex', alignItems:'baseline',justifyContent:'space-between'}}>
+                        <span style={{fontSize:'30px', marginRight:'2px'}} id='firstNameSpan'>Education</span>
+                        <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} onClick={newSchool}>Add School</span>
+                    </div>
+                    <Schools/>
+                    <section id='educationSection'></section>
+                </div>
+            )
     }
 }
