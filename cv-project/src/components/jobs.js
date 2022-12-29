@@ -1,6 +1,7 @@
 import React from 'react';
 import changeCompanyName from './changeCompanyName';
 import changeTitle from './changeTitle';
+import addTask from './addTask';
 import changeStart from './changeStart';
 import changeEnd from './changeEnd';
 import removeJob from './removeJob';
@@ -28,9 +29,11 @@ export class Jobs extends React.Component {
                             <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editTitle_${job_id}`} onClick={changeTitle}>Edit</span>
                         </li>
 
-                        <li style={{display:'flex',flexDirection:'row', alignItems:'center'}} id={`tasks_${job_id}`}>
+                        <li style={{display:'flex',flexDirection:'column'}} id={`tasks_${job_id}`}>
+                            <div style={{display:'flex',flexDirection:'row', alignItems:'center',gap:'10px'}}>
                             <span style={{fontSize:'18px'}} id={`Title_${job_id}`}>Main Tasks</span>
-                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`addTask_${job_id}`} onClick={changeTitle}>Add Task</span>
+                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`addTask_${job_id}`} onClick={addTask}>Add Task</span>
+                            </div>
                         </li>
 
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
