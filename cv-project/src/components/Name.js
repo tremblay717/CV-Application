@@ -5,14 +5,14 @@ export class Name extends React.Component {
     render() {
 
         function changeName(){
-            const firstName = document.getElementById('firstName');
+            const firstName = document.getElementById('firstNameSpan');
 
             const firstNameInput = document.createElement('input');
             firstNameInput.id = 'firstNameInput'
             firstNameInput.setAttribute('style', 'width:200px; margin-left:10px');
 
             firstNameInput.addEventListener('keypress', function (event) {
-                if (event.key === 'Enter' || firstNameInput.value !== '') {
+                if (event.key === 'Enter' && firstNameInput.value !== '') {
                     document.getElementById('firstNameSpan').textContent = firstNameInput.value;
                     document.getElementById('headBarSpan').textContent = `Welcome ${firstNameInput.value}`
                     firstNameInput.remove();

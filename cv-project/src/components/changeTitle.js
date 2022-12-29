@@ -3,7 +3,7 @@ export default function changeTitle(event) {
     const indexofItem = (event.target.id).indexOf('_');
     const companyId = (event.target.id).slice(indexofItem + 1, event.target.id.length);
     const titleInput = document.createElement('input');
-    titleInput.id = 'compatitleInputnyNameInput';
+    titleInput.id = 'titleInput';
     titleInput.setAttribute('style', 'width:200px; margin-left:10px');
 
     const titleSpan = document.getElementById(`Title_${companyId}`);

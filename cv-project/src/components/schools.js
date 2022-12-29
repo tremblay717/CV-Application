@@ -2,6 +2,7 @@ import React from 'react';
 import changeSchoolName from './changeSchool';
 import changeStudy from './changeStudy';
 import changeGraduation from './changeGraduation';
+import removeSchool from './removeSchool';
 import uuid from 'react-uuid';
 
 export class Schools extends React.Component {
@@ -16,8 +17,10 @@ export class Schools extends React.Component {
                 <div>
                     <ul id={`School_${school_id}`}>
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
-                            <span style={{fontSize:'18px'}} id={`schoolName_${school_id}`}>School Name</span>
+                            <span style={{fontSize:'21px'}} id={`schoolName_${school_id}`}>School Name</span>
                             <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editSchoolName_${school_id}`} onClick={changeSchoolName}>Edit</span>
+                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`removeSchool_${school_id}`} onClick={removeSchool}>Remove</span>
+
                         </li>
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
                             <span style={{fontSize:'18px'}} id={`study_${school_id}`}>Title of Study</span>
