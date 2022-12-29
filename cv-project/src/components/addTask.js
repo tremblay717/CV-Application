@@ -1,5 +1,5 @@
+import editTask from './editTask';
 import uuid from 'react-uuid';
-
 
 export default function addTask (event) {
 
@@ -14,19 +14,28 @@ export default function addTask (event) {
     newTask.id = `task_${newTaskId}`;
     newTask.setAttribute('style','font-size:15px;margin-left:10px;');
 
-    const newTaskInput = document.createElement('input');
+    const newTaskInput = document.createElement('textarea');
     newTaskInput.id = 'newTaskInput'
-    newTaskInput.setAttribute('style', 'width:300px;');
+    newTaskInput.setAttribute('style', 'width:300px;height:100px;');
+
+    const editTaskSpan = document.createElement('span');
+    editTaskSpan.id = `editTask_${newTaskId}`;
+    editTaskSpan.setAttribute('style', 'font-size:10px;margin-left:10px;cursor:pointer;text-decoration:underline;');
+    editTaskSpan.addEventListener('click', editTask);
+    editTaskSpan.textContent = 'Edit';
 
     newTaskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter' && newTaskInput.value !== '') {
-            newTask.textContent = `- ${newTaskInput.value}`;
-            mainTaskLi.append(newTask)
+            newTask.textContent = `${newTaskInput.value}`;
+            mainTaskLi.append(newTask);
+            mainTaskLi.append(editTaskSpan);
+
             newTaskInput.remove();
         }
     })
 
     if (!document.getElementById('newTaskInput')){
-        mainTaskLi.append(newTaskInput)
+        mainTaskLi.append(newTaskInput);
     }    
 }
+

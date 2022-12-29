@@ -31,7 +31,7 @@ export class Jobs extends React.Component {
 
                         <li style={{display:'flex',flexDirection:'column'}} id={`tasks_${job_id}`}>
                             <div style={{display:'flex',flexDirection:'row', alignItems:'center',gap:'10px'}}>
-                            <span style={{fontSize:'18px'}} id={`Title_${job_id}`}>Main Tasks</span>
+                            <span style={{fontSize:'18px'}} id={`Title_${job_id}`}>Main Task(s)</span>
                             <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`addTask_${job_id}`} onClick={addTask}>Add Task</span>
                             </div>
                         </li>
