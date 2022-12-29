@@ -11,7 +11,6 @@ export default function addSchool() {
 
     const schoolUl = document.createElement('ul');
     schoolUl.setAttribute('style', 'margin-top:3%');
-
     schoolUl.id = school_id;
 
     const schoolNameLi = document.createElement('li');

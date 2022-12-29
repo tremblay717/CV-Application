@@ -10,7 +10,7 @@ export class Schools extends React.Component {
      
         function firstSchool () {
 
-            const school_id = uuid()
+            const school_id = uuid();
             
             const school = (
                 <div>
@@ -21,7 +21,7 @@ export class Schools extends React.Component {
                         </li>
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
                             <span style={{fontSize:'18px'}} id={`study_${school_id}`}>Title of Study</span>
-                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editStudy_${school_id}`}_ onClick={changeStudy}>Edit</span>
+                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editStudy_${school_id}`} onClick={changeStudy}>Edit</span>
                         </li>
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
                             <span style={{fontSize:'18px'}} id={`graduation_${school_id}`}>Graduation Year</span>

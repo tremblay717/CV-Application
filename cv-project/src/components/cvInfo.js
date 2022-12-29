@@ -4,7 +4,7 @@ import { Name } from './Name';
 import { Email } from './email';
 import { Phone } from './phone';
 import { Education } from './education';
-// import './index.css';
+import { Experience } from './experience';
 
 export class CvInfo extends React.Component {
     render() {
@@ -26,6 +26,7 @@ export class CvInfo extends React.Component {
                     {persona()}
                 </div>
                 <Education/>
+                <Experience/>
             </div>         
         )
     }

@@ -11,7 +11,7 @@ export class Email extends React.Component {
             emailInput.setAttribute('style', 'width:200px; margin-left:10px');
 
             emailInput.addEventListener('keypress', function (event) {
-                if (event.key === 'Enter' || emailInput.value !== '') {
+                if (event.key === 'Enter' && emailInput.value !== '') {
                     document.getElementById('emailSpan').textContent = `✉: ${emailInput.value}`;
                     emailInput.remove();
                 }

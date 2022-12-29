@@ -2,13 +2,10 @@ import React from 'react';
 import { Schools } from './schools';
 import addSchool from './addSchool';
 
-
-
 export class Education extends React.Component {
 
-        render() {
-   
-            const newSchool = event => {
+        render() {  
+            const newSchool = () => {
                 document.getElementById('education').appendChild(addSchool())
             } 
             
