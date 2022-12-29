@@ -1,5 +1,6 @@
 import changeCompanyName from './changeCompanyName';
 import changeTitle from './changeTitle';
+import addTask from './addTask';
 import changeStart from './changeStart';
 import changeEnd from './changeEnd';
 import removeJob from './removeJob';
@@ -52,9 +53,30 @@ export default function addJob () {
     const editTitle = document.createElement('span');
     editTitle.id = `editTitle_${company_id}`;
     editTitle.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    editTitle.addEventListener('click', changeTitle)
+    editTitle.addEventListener('click', changeTitle);
     editTitle.textContent = 'Edit';
     titleLi.appendChild(editTitle);
+
+    const addTaskMainLi = document.createElement('li');
+    addTaskMainLi.setAttribute('style','display:flex; flexDirection:column;')
+    addTaskMainLi.id = `tasks_${company_id}`;
+    companyUl.appendChild(addTaskMainLi);
+
+    const taskDiv = document.createElement('div');
+    taskDiv.setAttribute('style','display:flex; flex-direction:row;align-items:center;gap:10px');
+    addTaskMainLi.appendChild(taskDiv);
+
+    const mainTaskSpan = document.createElement('span');
+    mainTaskSpan.setAttribute('style','font-size:18px;')
+    mainTaskSpan.textContent = 'Main Task(s)'
+    taskDiv.appendChild(mainTaskSpan)
+
+    const addTaskSpan = document.createElement('span');
+    addTaskSpan.id = `addTask_${company_id}`
+    addTaskSpan.setAttribute('style','font-size:15px;text-decoration:underline;cursor:pointer;')
+    addTaskSpan.textContent = 'Add Task';
+    addTaskSpan.addEventListener('click',addTask);
+    taskDiv.appendChild(addTaskSpan)
 
     const startLi = document.createElement('li');
     startLi.setAttribute('style', 'display:flex;flex-direction:row; align-items:center;');
