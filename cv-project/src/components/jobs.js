@@ -27,6 +27,12 @@ export class Jobs extends React.Component {
                             <span style={{fontSize:'18px'}} id={`Title_${job_id}`}>Job Title</span>
                             <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editTitle_${job_id}`} onClick={changeTitle}>Edit</span>
                         </li>
+
+                        <li style={{display:'flex',flexDirection:'row', alignItems:'center'}} id={`tasks_${job_id}`}>
+                            <span style={{fontSize:'18px'}} id={`Title_${job_id}`}>Main Tasks</span>
+                            <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`addTask_${job_id}`} onClick={changeTitle}>Add Task</span>
+                        </li>
+
                         <li style={{display:'flex',flexDirection:'row', alignItems:'center'}}>
                             <span style={{fontSize:'18px'}} id={`Start_${job_id}`}>Starting Date</span>
                             <span style={{fontSize:'15px', textDecoration:'underline',cursor:'pointer'}} id={`editStart_${job_id}`} onClick={changeStart}>Edit</span>

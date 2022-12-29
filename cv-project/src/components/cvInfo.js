@@ -11,7 +11,6 @@ export class CvInfo extends React.Component {
         function persona() {
             return <img src={image} alt='persona' width={'15%'} />
         }
-     
         return ( 
             <div className = 'cvInfo'>
                 <div className='cvInfoTop'>
