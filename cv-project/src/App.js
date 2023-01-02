@@ -5,19 +5,26 @@ import persona from './components/Persona.jpg'
 
 export function App () {
 
-    const [fullName, setFullName] = useState('Your Name')
+    const [fullName, setFullName] = useState('Your Name');
+    const [phoneNumber, setPhoneNumber] = useState('Phone Number');
+    const [emailAdress, setEmailAdress] = useState('Email Adress')
 
-    function getFullName() {
+    function personalInfo() {
 
       const firstName = document.getElementById('firstName');
       const surname = document.getElementById('surname');
+
+      const phone = document.getElementById('phone');
       
       if(firstName.value !== "" && surname.value !== ""){
         setFullName(`${firstName.value} ${surname.value}`);
       }
-    }
 
-    const [phoneNumber, setPhoneNumber] = useState('Phone Number');
+      if(phone.value.length === 10){
+        setPhoneNumber(`☎ ${phone.value.slice(0,3)} -  ${phone.value.slice(3,6)} - ${phone.value.slice(6,phoneNumber.length)}`);
+      }
+
+    }
 
     return (
       <div>
@@ -36,13 +43,13 @@ export function App () {
                       </li>
                       <li>
                           <label>Phone number</label>
-                          <input></input>
+                          <input id='phone'></input>
                       </li>
                       <li>
                           <label>Email Adress</label>
                           <input></input>
                       </li>
-                      <button type="button" style={{cursor:'pointer'}} onClick={getFullName}>Add Personal Info</button>
+                      <button type="button" style={{cursor:'pointer'}} onClick={personalInfo}>Add Personal Info</button>
                   </ul>
               </form>
           </div>
@@ -50,8 +57,8 @@ export function App () {
             <div className='personalInfo'>
                 <div style={{display:'flex',flexDirection:'column',gap:'25%'}}>
                     <span>{fullName}</span>
-                    <span>Phone Number</span>
-                    <span>Email Adress</span>                        
+                    <span>{phoneNumber}</span>
+                    <span>{emailAdress}</span>                        
                 </div>
                 <img src={persona} alt='persona' style={{width:'25%',borderRadius:'8px'}}></img>
             </div>
