@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from 'react';
 import { HeadBar } from "./components/Headbar"
+import addSchool from "./components/addSchool"
 import persona from './components/Persona.jpg'
 
 
@@ -114,7 +115,10 @@ export function App () {
                 <img src={persona} alt='persona' style={{width:'25%',borderRadius:'8px'}}></img>
             </div>
             <div className="education">
-                  <span style={{fontWeight:'700', fontSize:'25px'}}>Education</span>
+                  <div style={{display:'flex', alignItems:'baseline', justifyContent:'space-between'}}>
+                    <span style={{fontWeight:'700', fontSize:'25px'}}>Education</span>
+                    <span style={{fontWeight:'700', fontSize:'15px'}} onClick={addSchool}>Add School</span>
+                  </div>
                   <span style={{fontWeight:'550', fontSize:'22px'}}>{schoolName}</span>
                   <span style={{fontWeight:'500', fontSize:'20px'}}>{studyTitle}</span>
                   <span style={{fontWeight:'500', fontSize:'20px'}}>{graduationDate}</span>
