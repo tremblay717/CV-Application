@@ -1,13 +1,17 @@
 import React from "react"
 import { HeadBar } from "./components/Headbar"
-import { Cv } from "./components/cv"
+import CvForm from "./components/form"
+import CvInfo from "./components/info"
 
 export class App extends React.Component {
   render() {
     return (
       <div>
         <HeadBar/>
-        <Cv/>
+        <div className="cvSection">
+          <CvForm/>
+          <CvInfo/>
+        </div>
       </div>
     )
   }

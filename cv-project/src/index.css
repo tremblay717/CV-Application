@@ -12,8 +12,8 @@ body {
 
 .headBar {
   margin-top: 2%;
-  margin-left: 18%;
-  margin-right: 18%;
+  margin-left: 8%;
+  margin-right: 8%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -25,102 +25,26 @@ body {
 }
 
 .cvSection {
+  margin-top: 2%;
+  margin-left: 8%;
+  margin-right: 8%;
   display: flex;
   flex-direction: row;
+  gap:2%
 }
 
+
 .cvForm {
-  padding: 2%;
-  display: flex;
-  flex-direction: column;
-  margin: 1%;
-  color: #61dafb;
-  justify-content: space-between;
-  gap: 20px;
   width: 30%;
+  height: 20vh;
+  background-color: rgb(91, 68, 173);
   border-radius: 10px;
-  border: solid #61dafb;
-  border-width: 1.5px;
+
 }
 
 .cvInfo {
-  display: flex;
-  flex-direction: column;
-  padding: 2%;
-  margin-top: 2%;
-  margin-left: 18%;
-  margin-right: 18%;
-  margin-bottom: 2%;
-  color: #61dafb;
-  justify-content: space-between;
-  gap: 30px;
-  width: 100%;
+  width: 70%;
+  height: 20vh;
+  background-color: white;
   border-radius: 10px;
-  border: solid #61dafb;
-  border-width: 1.5px;
 }
-
-.info {
-  font-size: 1.5rem;
-  width: 100%;
-}
-
-.cvInfoTop{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0px;
-}
-
-li {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-label {
-  font-size: 1rem;
-}
-
-input {
-  width: 90%;
-  height: 25px;
-  /* font-size: 20px; */
-}
-
-img {
-  border-radius: 8px;
-}
-
-.submitInfos {
-  background-color: #61dafb;
-  border-radius: 10px;
-  border: solid #20232a;
-  width: 200px;
-  height: 60px;
-  font-size: 20px;
-  color:#20232a;
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 25px;
-}
-
-.emailPhone {
-  display: flex;
-  gap: 20px;
-}
-
