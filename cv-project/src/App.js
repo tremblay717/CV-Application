@@ -74,7 +74,7 @@ export function App () {
         document.getElementById('educationUl').remove();
       }
 
-      if (!document.getElementById('educationInfoSpan')){
+      if (!document.getElementById('educationInfoSpan') && !document.getElementById('jobInfoSpan') && !document.getElementById('personalInfoSpan')){
         document.querySelector('.cvForm').remove();
         document.querySelector('.cvInfo').setAttribute('style','width:100%');
       }
@@ -92,28 +92,42 @@ export function App () {
       const company = document.getElementById('company');
       const job = document.getElementById('job');
       const tasks = document.getElementById('tasks');
+      const start = document.getElementById('start');
+      const end = document.getElementById('end')
+
 
       if(company.value !== ""){
         setCompanyName(company.value);
       }
       if(job.value !== ""){
-        setStudy(job.value);
+        setJob(job.value);
       }
       if(tasks.value !== ""){
         setTasks(tasks.value);
       }
+
+      if (start.value !== "") {
+        const date = new Date(start.value);
+        const month = date.toLocaleString('default', { month: 'long' });
+        setStart(`Starting date: ${month.slice(0,3)} ${date.getFullYear()}`);
+      }
+
+      if (end.value !== "") {
+        const date = new Date(end.value);
+        const month = date.toLocaleString('default', { month: 'long' });
+        setEnd(`Ending date: ${month.slice(0,3)} ${date.getFullYear()}`);
+      }
+
       
-      // if (school.value !== "" && study.value !== "" && graduation.value){
-      //   document.getElementById('educationInfoSpan').remove();      
-      //   document.getElementById('educationUl').remove();
-      // }
+      if (company.value !== "" && job.value !== "" && tasks.value){
+        document.getElementById('jobInfoSpan').remove();      
+        document.getElementById('experienceUl').remove();
+      }
 
-      // if (!document.getElementById('educationInfoSpan')){
-      //   document.querySelector('.cvForm').remove();
-      //   document.querySelector('.cvInfo').setAttribute('style','width:100%');
-      // }
-
-
+      if (!document.getElementById('educationInfoSpan') && !document.getElementById('jobInfoSpan') && !document.getElementById('personalInfoSpan')){
+        document.querySelector('.cvForm').remove();
+        document.querySelector('.cvInfo').setAttribute('style','width:100%');
+      }
     }
 
     return (
@@ -158,7 +172,7 @@ export function App () {
                 </li>
                 <button type="button" style={{cursor:'pointer'}} onClick={educationInfo}>Add Education Info</button>
               </ul>
-              <span id='educationInfoSpan' style={{marginLeft:'10%', marginTop:'20px', fontWeight:'500'}}>Experience</span>
+              <span id='jobInfoSpan' style={{marginLeft:'10%', marginTop:'20px', fontWeight:'500'}}>Experience</span>
               <ul id='experienceUl'>
                 <li>
                   <label>Company Name</label>
@@ -174,11 +188,11 @@ export function App () {
                 </li>
                 <li>
                   <label>Start Date</label>
-                  <input type='date' id='graduation'></input>
+                  <input type='date' id='start'></input>
                 </li>
                 <li>
                   <label>End Date</label>
-                  <input type='date' id='graduation'></input>
+                  <input type='date' id='end'></input>
                 </li>
                 <button type="button" style={{cursor:'pointer'}} onClick={experienceInfo}>Add Job Info</button>
               </ul>
