@@ -10,6 +10,7 @@ import editTask from "./components/editTask"
 import editStart from "./components/editStart"
 import editEnd from "./components/editEnd"
 import removeTask from "./components/removeTask"
+import addJob from "./components/addJob"
 import removeJob from "./components/removeJob"
 import persona from './components/Persona.jpg'
 import uuid from 'react-uuid'
@@ -237,68 +238,65 @@ export function App () {
             <div className="education">
               <div style={{display:'flex', alignItems:'baseline', justifyContent:'space-between'}}>
                 <span style={{fontWeight:'700', fontSize:'25px'}}>Education</span>
-                <span style={{fontWeight:'700', fontSize:'15px'}} onClick={addSchool}>Add School</span>
+                <span style={{fontWeight:'700', fontSize:'15px', cursor:'not-allowed'}} onClick={addSchool}>Add School</span>
               </div>
               <div id={`School_${id}`} style={{display:'flex', flexDirection:'column', gap:'20px'}}>
                 <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                 <span style={{fontWeight:'550', fontSize:'22px'}} id={`schoolName_${id}`}>{schoolName}</span>
-                <span style={{fontWeight:'500', fontSize:'10px'}} id={`editSchoolName_${id}`} onClick={editSchool}>Edit</span>
+                <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editSchoolName_${id}`} onClick={editSchool}>Edit</span>
               </div>
               <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                 <span style={{fontWeight:'500', fontSize:'20px'}} id={`study_${id}`}>{studyTitle}</span>
-                <span style={{fontWeight:'500', fontSize:'10px'}} id={`editStudy_${id}`} onClick={editStudy}>Edit</span>
+                <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editStudy_${id}`} onClick={editStudy}>Edit</span>
               </div>
               <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                 <span style={{fontWeight:'500', fontSize:'20px'}} id={`graduation_${id}`}>{graduationDate}</span>
-                <span style={{fontWeight:'500', fontSize:'10px'}} id={`editGraduation_${id}`} onClick={editGraduation}>Edit</span>
+                <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editGraduation_${id}`} onClick={editGraduation}>Edit</span>
               </div>    
               </div>
             </div>
-            <div className="experience">
+            <div className="experience" style={{display:'flex', flexDirection:'column', gap:'30px'}}>
               <div style={{display:'flex', alignItems:'baseline', justifyContent:'space-between'}}>
                 <span style={{fontWeight:'700', fontSize:'25px'}}>Experience</span>
-                <span style={{fontWeight:'700', fontSize:'15px'}} onClick={addSchool}>Add Job</span>
+                <span style={{fontWeight:'700', fontSize:'15px', cursor:'not-allowed'}} onClick={addJob}>Add Job</span>
               </div>
-              
               <div className='jobSection' id={`Job_${id}`} style={{display:'flex', flexDirection:'column', gap:'20px'}}>
                 <div className='companyTitle' style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                   <span style={{fontWeight:'550', fontSize:'22px'}} id={`companyName_${id}`}>{companyName}</span>
-                  <span style={{fontWeight:'500', fontSize:'10px'}} id={`editCompanyName_${id}`} onClick={editCompany}>Edit</span>
-                  <span style={{fontWeight:'500', fontSize:'10px'}} id={`removeCompanyName_${id}`} onClick={removeJob}>Remove</span>
+                  <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editCompanyName_${id}`} onClick={editCompany}>Edit</span>
+                  <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`removeCompanyName_${id}`} onClick={removeJob}>Remove</span>
                 </div>
                 <div className='jobTitle' style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                   <span style={{fontWeight:'500', fontSize:'20px'}} id={`job_${id}`}>{jobTitle}</span>
-                  <span style={{fontWeight:'500', fontSize:'10px'}} id={`editJob_${id}`} onClick={editJob}>Edit</span>
+                  <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editJob_${id}`} onClick={editJob}>Edit</span>
                 </div>
-                <div className="taskSection" style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%', width:'100%'}}>
-                  <div style={{display:'flex',flexDirection:'column'}}>
+                <div className="taskSection" style={{display:'flex',flexDirection:'column'}}>
                     <span style={{fontWeight:'500', fontSize:'20px', marginBottom:'10px'}} id={`graduation_${id}`}>Main Tasks</span>
                     <div style={{display:'flex', flexDirection:'column',gap:'20px', marginBottom:'10px'}}>
-                    <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task1ID}`}>
-                      <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task1ID}`}>{task1}</span>
-                      <span style={{fontWeight:'500', fontSize:'10px'}} id={`editTask_${task1ID}`} onClick={editTask}>Edit</span>
-                      <span style={{fontWeight:'500', fontSize:'10px'}} id={`removeTask_${task1ID}`} onClick={removeTask}>Remove</span>
+                      <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task1ID}`}>
+                        <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task1ID}`}>{task1}</span>
+                        <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editTask_${task1ID}`} onClick={editTask}>Edit</span>
+                        <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`removeTask_${task1ID}`} onClick={removeTask}>Remove</span>
                     </div>
                     <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task2ID}`}>
                       <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px',width:'100%'}} id={`tasks_${task2ID}`}>{task2}</span>
-                      <span style={{fontWeight:'500', fontSize:'10px'}} id={`editTask_${task2ID}`} onClick={editTask}>Edit</span>
-                      <span style={{fontWeight:'500', fontSize:'10px', marginLeft:'5px'}} id={`removeTask_${task2ID}`} onClick={removeTask}>Remove</span>
+                      <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editTask_${task2ID}`} onClick={editTask}>Edit</span>
+                      <span style={{fontWeight:'500', fontSize:'10px', marginLeft:'5px',cursor:'not-allowed'}} id={`removeTask_${task2ID}`} onClick={removeTask}>Remove</span>
                     </div>
                     <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task3ID}`}>
-                      <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task3ID}`}>{task3}</span>
-                      <span style={{fontWeight:'500', fontSize:'10px'}} id={`editTask_${task3ID}`} onClick={editTask}>Edit</span>
-                      <span style={{fontWeight:'500', fontSize:'10px'}} id={`removeTask_${task3ID}`} onClick={removeTask}>Remove</span>
+                      <span style={{fontWeight:'500', fontSize:'15px', marginLeft:'10px'}} id={`tasks_${task3ID}`}>{task3}</span>
+                      <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editTask_${task3ID}`} onClick={editTask}>Edit</span>
+                      <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`removeTask_${task3ID}`} onClick={removeTask}>Remove</span>
                     </div>
-                  </div>
                 </div>
               </div>          
                 <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
-                  <span style={{fontWeight:'500', fontSize:'20px'}} id={`start_${id}`}>{startDate}</span>
-                  <span style={{fontWeight:'500', fontSize:'10px'}} id={`editStart_${id}`} onClick={editStart}>Edit</span>
+                  <span style={{fontWeight:'500', fontSize:'15px',cursor:'not-allowed'}} id={`start_${id}`}>{startDate}</span>
+                  <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editStart_${id}`} onClick={editStart}>Edit</span>
                 </div>
                 <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
-                  <span style={{fontWeight:'500', fontSize:'20px'}} id={`end_${id}`}>{endDate}</span>
-                  <span style={{fontWeight:'500', fontSize:'10px'}} id={`editEnd_${id}`} onClick={editEnd}>Edit</span>
+                  <span style={{fontWeight:'500', fontSize:'15px',cursor:'not-allowed'}} id={`end_${id}`}>{endDate}</span>
+                  <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editEnd_${id}`} onClick={editEnd}>Edit</span>
                 </div>
               </div>
             </div>

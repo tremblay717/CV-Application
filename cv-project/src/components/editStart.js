@@ -14,7 +14,7 @@ export default function editStart (event) {
         if (event.key === 'Enter' && startInput.value !== '') {
             const date = new Date(startInput.value);
             const month = date.toLocaleString('default', { month: 'long' });
-            startSpan.textContent= `Ending date: ${month.slice(0,3)} ${date.getFullYear()}`;
+            startSpan.textContent= `Starting date: ${month.slice(0,3)} ${date.getFullYear()}`;
             startInput.remove();
         }
     })
