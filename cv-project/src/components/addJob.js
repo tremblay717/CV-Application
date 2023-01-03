@@ -6,6 +6,7 @@ import editEnd from "./editEnd"
 import removeTask from "./removeTask"
 import removeJob from "./removeJob"
 import uuid from 'react-uuid';
+import addTask from "./addTask"
 
 export default function addJob () {
 
@@ -70,6 +71,7 @@ export default function addJob () {
 
     const taskSection = document.createElement('div');
     taskSection.className = 'taskSection';
+    taskSection.id = `taskSection_${jobId}`;
     taskSection.setAttribute('style','display:flex; flex-direction:column; align-items:baseline; justify-content:flex-start; gap:1%');
     jobDiv.appendChild(taskSection);
 
@@ -83,11 +85,15 @@ export default function addJob () {
     taskHeader.appendChild(mainTaskSpan);
 
     const addTaskSpan = document.createElement('span');
+    addTaskSpan.id = `addTask_${jobId}`;
     addTaskSpan.textContent = 'Add Task';
     addTaskSpan.setAttribute('style','font-weight:700; font-size:12px;')
+    addTaskSpan.addEventListener('click',addTask)
     taskHeader.appendChild(addTaskSpan);
 
     const taskList = document.createElement('div');
+    taskList.id = `taskList_${jobId}`;
+    taskList.className = 'taskList'
     taskList.setAttribute('style','display:flex;flex-direction:column; gap:20px;margin-bottom:10px;')
     taskSection.appendChild(taskList);
     

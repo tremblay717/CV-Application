@@ -14,6 +14,7 @@ import addJob from "./components/addJob"
 import removeJob from "./components/removeJob"
 import persona from './components/Persona.jpg'
 import uuid from 'react-uuid'
+import addTask from "./components/addTask"
 
 export function App () {
 
@@ -270,18 +271,17 @@ export function App () {
                   <span style={{fontWeight:'500', fontSize:'20px'}} id={`job_${id}`}>{jobTitle}</span>
                   <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editJob_${id}`} onClick={editJob}>Edit</span>
                 </div>
-                <div className="taskSection" style={{display:'flex',flexDirection:'column'}}>
+                <div className="taskSection" id={`taskSection_${id}`} style={{display:'flex',flexDirection:'column'}}>
                     <div className="taskHeader" style={{display:'flex', alignItems:'baseline', justifyContent:'space-between'}}>
                       <span style={{fontWeight:'500', fontSize:'20px', marginBottom:'10px'}} id={`graduation_${id}`}>Main Tasks</span>
-                      <span style={{fontWeight:'700', fontSize:'12px', marginBottom:'10px', cursor:'not-allowed'}} id={`graduation_${id}`}>Add Task</span>
-
+                      <span style={{fontWeight:'700', fontSize:'12px', marginBottom:'10px', cursor:'not-allowed'}} id={`addTask_${id}`} onClick={addTask}>Add Task</span>
                     </div>
-                    <div style={{display:'flex', flexDirection:'column',gap:'20px', marginBottom:'10px'}}>
+                    <div className="taskList" id={`taskList_${id}`} style={{display:'flex', flexDirection:'column',gap:'20px', marginBottom:'10px'}}>
                       <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task1ID}`}>
                         <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task1ID}`}>{task1}</span>
                         <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editTask_${task1ID}`} onClick={editTask}>Edit</span>
                         <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`removeTask_${task1ID}`} onClick={removeTask}>Remove</span>
-                    </div>
+                      </div>
                     <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task2ID}`}>
                       <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px',width:'100%'}} id={`tasks_${task2ID}`}>{task2}</span>
                       <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editTask_${task2ID}`} onClick={editTask}>Edit</span>
