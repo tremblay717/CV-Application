@@ -232,18 +232,18 @@ export function App () {
           </div>
           <div className='cvInfo'>
             <div className='personalInfo'>
-              <div style={{display:'flex',flexDirection:'column',gap:'20px',justifyContent:'space-around'}}>
+              <div style={{display:'flex',flexDirection:'column',justifyContent:'space-around'}}>
                 <div style={{display:'flex', flexDirection:'row', alignItems:'baseline', gap:'10px'}}>
                   <span style={{fontWeight:'700', fontSize:'25px'}} id='fullName'>{fullName}</span>
-                  <span style={{fontWeight:'700', fontSize:'10px'}} onClick={editName}>Edit</span>
+                  <span style={{fontWeight:'700', fontSize:'10px', cursor:'not-allowed'}} onClick={editName}>Edit</span>
                 </div>
                 <div style={{display:'flex', flexDirection:'row', alignItems:'baseline', gap:'10px'}}>
                 <span style={{fontWeight:'500', fontSize:'20px'}} id='phoneNumber'>{phoneNumber}</span>
-                  <span style={{fontWeight:'700', fontSize:'10px'}} onClick={editPhone}>Edit</span>
+                  <span style={{fontWeight:'700', fontSize:'10px', cursor:'not-allowed'}} onClick={editPhone}>Edit</span>
                 </div>
                 <div style={{display:'flex', flexDirection:'row', alignItems:'baseline', gap:'10px'}}>
                   <span style={{fontWeight:'500', fontSize:'20px'}} id='emailAddress'>{emailAdress}</span>
-                  <span style={{fontWeight:'700', fontSize:'10px'}} onClick={editEmail}>Edit</span>
+                  <span style={{fontWeight:'700', fontSize:'10px',cursor:'not-allowed'}} onClick={editEmail}>Edit</span>
                 </div>
               </div>
               <img src={persona} alt='persona' style={{width:'25%',borderRadius:'8px', minWidth:'87px'}}></img>
