@@ -73,10 +73,19 @@ export default function addJob () {
     taskSection.setAttribute('style','display:flex; flex-direction:column; align-items:baseline; justify-content:flex-start; gap:1%');
     jobDiv.appendChild(taskSection);
 
+    const taskHeader = document.createElement('div');
+    taskHeader.setAttribute('style','display:flex;align-items:baseline; justify-content:space-between;width:100%')
+    taskSection.appendChild(taskHeader);
+
     const mainTaskSpan = document.createElement('span');
     mainTaskSpan.textContent = 'Main Tasks';
     mainTaskSpan.setAttribute('style','font-weight:500; font-size:20px; margin-bottom:10px');
-    taskSection.appendChild(mainTaskSpan);
+    taskHeader.appendChild(mainTaskSpan);
+
+    const addTaskSpan = document.createElement('span');
+    addTaskSpan.textContent = 'Add Task';
+    addTaskSpan.setAttribute('style','font-weight:700; font-size:12px;')
+    taskHeader.appendChild(addTaskSpan);
 
     const taskList = document.createElement('div');
     taskList.setAttribute('style','display:flex;flex-direction:column; gap:20px;margin-bottom:10px;')
@@ -91,7 +100,7 @@ export default function addJob () {
 
     const taskOneSpan = document.createElement('span');
     taskOneSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
-    taskOneSpan.textContent = 'Task 1';
+    taskOneSpan.textContent = 'Task';
     taskOneSpan.id = `tasks_${newTask1ID}`
     taskOneDiv.appendChild(taskOneSpan);
 
@@ -118,7 +127,7 @@ export default function addJob () {
 
     const taskTwoSpan = document.createElement('span');
     taskTwoSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
-    taskTwoSpan.textContent = 'Task 2';
+    taskTwoSpan.textContent = 'Task';
     taskTwoSpan.id = `tasks_${newTask2ID}`;
     taskTwoDiv.appendChild(taskTwoSpan);
 
@@ -146,7 +155,7 @@ export default function addJob () {
 
     const taskThreeSpan = document.createElement('span');
     taskThreeSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
-    taskThreeSpan.textContent = 'Task 3';
+    taskThreeSpan.textContent = 'Task';
     taskThreeSpan.id = `tasks_${newTask3ID}`;
     taskThreeDiv.appendChild(taskThreeSpan);
 

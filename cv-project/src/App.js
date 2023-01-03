@@ -92,9 +92,9 @@ export function App () {
 
     const [companyName, setCompanyName] = useState('Company Name');
     const [jobTitle, setJob] = useState('Job Title');
-    const [task1, setTask1] = useState('Task 1');
-    const [task2, setTask2] = useState('Task 2');
-    const [task3, setTask3] = useState('Task 3');
+    const [task1, setTask1] = useState('Task');
+    const [task2, setTask2] = useState('Task');
+    const [task3, setTask3] = useState('Task');
     const [startDate, setStart] = useState('Starting Date');
     const [endDate, setEnd] = useState('Ending Date');
     
@@ -271,7 +271,11 @@ export function App () {
                   <span style={{fontWeight:'500', fontSize:'10px',cursor:'not-allowed'}} id={`editJob_${id}`} onClick={editJob}>Edit</span>
                 </div>
                 <div className="taskSection" style={{display:'flex',flexDirection:'column'}}>
-                    <span style={{fontWeight:'500', fontSize:'20px', marginBottom:'10px'}} id={`graduation_${id}`}>Main Tasks</span>
+                    <div className="taskHeader" style={{display:'flex', alignItems:'baseline', justifyContent:'space-between'}}>
+                      <span style={{fontWeight:'500', fontSize:'20px', marginBottom:'10px'}} id={`graduation_${id}`}>Main Tasks</span>
+                      <span style={{fontWeight:'700', fontSize:'12px', marginBottom:'10px', cursor:'not-allowed'}} id={`graduation_${id}`}>Add Task</span>
+
+                    </div>
                     <div style={{display:'flex', flexDirection:'column',gap:'20px', marginBottom:'10px'}}>
                       <div style={{display:'flex', flexDirection: 'column' , alignItems:'baseline', width:'100%', gap:'5px'}} id={`taskDiv_${task1ID}`}>
                         <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task1ID}`}>{task1}</span>
