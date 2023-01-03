@@ -1,7 +1,8 @@
-export default function changeSchoolName(event) {
-    console.log(event.target.id)
+export default function editSchool(event) {
+
     const indexofItem = (event.target.id).indexOf('_');
-    const schoolNameId = (event.target.id).slice(indexofItem + 1,event.target.id.length);
+    const schoolNameId = (event.target.id).slice(indexofItem + 1, event.target.id.length);
+
     const schoolNameInput = document.createElement('input');
     schoolNameInput.id = 'schoolNameInput';
     schoolNameInput.setAttribute('style', 'width:200px; margin-left:10px');

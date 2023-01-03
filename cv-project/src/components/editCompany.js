@@ -1,12 +1,13 @@
-export default function changeCompanyName(event) {
+export default function editCompany (event) {
 
     const indexofItem = (event.target.id).indexOf('_');
-    const companyId = (event.target.id).slice(indexofItem + 1,event.target.id.length);
+    const companyNameId = (event.target.id).slice(indexofItem + 1, event.target.id.length);
+
     const companyNameInput = document.createElement('input');
     companyNameInput.id = 'companyNameInput';
     companyNameInput.setAttribute('style', 'width:200px; margin-left:10px');
 
-    const companyNameSpan = document.getElementById(`companyName_${companyId}`);
+    const companyNameSpan = document.getElementById(`companyName_${companyNameId}`);
 
     companyNameInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter' && companyNameInput.value !== '') {

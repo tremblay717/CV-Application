@@ -6,7 +6,6 @@ export class HeadBar extends React.Component {
         return ( 
             <div className='headBar'>
                 <span className='headBarSpan'>CV Application</span>
-                <span className='headBarSpan' id='headBarSpan'>Welcome @guest</span>
             </div>
 
         )

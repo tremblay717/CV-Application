@@ -1,116 +1,215 @@
-import changeCompanyName from './changeCompanyName';
-import changeTitle from './changeTitle';
-import addTask from './addTask';
-import changeStart from './changeStart';
-import changeEnd from './changeEnd';
-import removeJob from './removeJob';
-
+import editCompany from "./editCompany"
+import editJob from "./editJob"
+import editTask from "./editTask"
+import editStart from "./editStart"
+import editEnd from "./editEnd"
+import removeTask from "./removeTask"
+import removeJob from "./removeJob"
 import uuid from 'react-uuid';
-
+import addTask from "./addTask"
 
 export default function addJob () {
 
-    const company_id = uuid();
+    const jobId = uuid();
 
-    const companyUl = document.createElement('ul');
-    companyUl.setAttribute('style', 'margin-top:3%');
-    companyUl.id = `Company_${company_id}`;
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'jobSection';
+    jobDiv.setAttribute('style','display:flex; flex-direction:column; gap:20px');
+    jobDiv.id = `Job_${jobId}`;
 
-    const companyNameLi = document.createElement('li');
-    companyNameLi.setAttribute('style', 'display:flex;flex-direction:row; align-items:center;');
-    companyUl.appendChild(companyNameLi);
+    document.querySelector('.experience').appendChild(jobDiv);
 
-    const companyNameSpan = document.createElement('span');
-    companyNameSpan.id = `companyName_${company_id}`;
-    companyNameSpan.style.fontSize = '21px';
-    companyNameSpan.textContent = 'Company Name';
-    companyNameLi.appendChild(companyNameSpan);
+    const companyTitle = document.createElement('div');
+    companyTitle.className = 'companyTitle';
+    companyTitle.setAttribute('style','display:flex; flex-direction:row; align-items:baseline; justify-content:flex-start; gap:1%');
+    jobDiv.appendChild(companyTitle);
 
-    const editCompanyName = document.createElement('span');
-    editCompanyName.id = `editCompanyName_${company_id}`;
-    editCompanyName.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    editCompanyName.addEventListener('click', changeCompanyName);
-    editCompanyName.textContent = 'Edit';
-    companyNameLi.appendChild(editCompanyName);
+    const companySpan = document.createElement('span');
+    companySpan.textContent = 'Company Name';
+    companySpan.className = 'companyTitle';
+    companySpan.id = `companyName_${jobId}`;
+    companySpan.setAttribute('style','font-weight:550; font-size:22px');
+    companyTitle.appendChild(companySpan);
 
-    const removeCompany = document.createElement('span');
-    removeCompany.id = `remove_${company_id}`;
-    removeCompany.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    removeCompany.addEventListener('click', removeJob);
-    removeCompany.textContent = 'Remove';
-    companyNameLi.appendChild(removeCompany);
+    const editCompanySpan = document.createElement('span');
+    editCompanySpan.textContent = 'Edit';
+    editCompanySpan.className = 'editCompanySpan';
+    editCompanySpan.id = `editCompanyName_${jobId}`;
+    editCompanySpan.setAttribute('style','font-weight:500; font-size:10px');
+    editCompanySpan.addEventListener('click', editCompany);
+    companyTitle.appendChild(editCompanySpan);
 
-    const titleLi = document.createElement('li');
-    titleLi.setAttribute('style', 'display:flex;flex-direction:row; align-items:center;');
-    companyUl.appendChild(titleLi);
+    const removeCompanySpan = document.createElement('span');
+    removeCompanySpan.textContent = 'Remove';
+    removeCompanySpan.className = 'removeCompanySpan';
+    removeCompanySpan.id = `removeCompanyName_${jobId}`
+    removeCompanySpan.setAttribute('style','font-weight:500; font-size:10px');
+    removeCompanySpan.addEventListener('click', removeJob);
+    companyTitle.appendChild(removeCompanySpan);
+
+    const jobTitle = document.createElement('div');
+    jobTitle.className = 'jobTitle';
+    jobTitle.setAttribute('style','display:flex; flex-direction:row; align-items:baseline; justify-content:flex-start; gap:1%');
+    jobDiv.appendChild(jobTitle);
+
 
     const titleSpan = document.createElement('span');
-    titleSpan.id = `Title_${company_id}`;
-    titleSpan.style.fontSize = '18px';
     titleSpan.textContent = 'Job Title';
-    titleLi.appendChild(titleSpan);
+    titleSpan.className = 'editCompanySpan';
+    titleSpan.id = `job_${jobId}`;
+    titleSpan.setAttribute('style','font-weight:500; font-size:20px');
+    titleSpan.addEventListener('click', editCompany);
+    jobTitle.appendChild(titleSpan);
 
-    const editTitle = document.createElement('span');
-    editTitle.id = `editTitle_${company_id}`;
-    editTitle.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    editTitle.addEventListener('click', changeTitle);
-    editTitle.textContent = 'Edit';
-    titleLi.appendChild(editTitle);
+    const editTitleSpan = document.createElement('span');
+    editTitleSpan.textContent = 'Edit';
+    editTitleSpan.className = 'editCompanySpan';
+    editTitleSpan.id = `editJob_${jobId}`;
+    editTitleSpan.setAttribute('style','font-weight:500; font-size:10px');
+    editTitleSpan.addEventListener('click', editJob);
+    jobTitle.appendChild(editTitleSpan);
 
-    const addTaskMainLi = document.createElement('li');
-    addTaskMainLi.setAttribute('style','display:flex; flexDirection:column;')
-    addTaskMainLi.id = `tasks_${company_id}`;
-    companyUl.appendChild(addTaskMainLi);
+    const taskSection = document.createElement('div');
+    taskSection.className = 'taskSection';
+    taskSection.id = `taskSection_${jobId}`;
+    taskSection.setAttribute('style','display:flex; flex-direction:column; align-items:baseline; justify-content:flex-start; gap:1%');
+    jobDiv.appendChild(taskSection);
 
-    const taskDiv = document.createElement('div');
-    taskDiv.setAttribute('style','display:flex; flex-direction:row;align-items:center;gap:10px');
-    addTaskMainLi.appendChild(taskDiv);
+    const taskHeader = document.createElement('div');
+    taskHeader.setAttribute('style','display:flex;align-items:baseline; justify-content:space-between;width:100%')
+    taskSection.appendChild(taskHeader);
 
     const mainTaskSpan = document.createElement('span');
-    mainTaskSpan.setAttribute('style','font-size:18px;')
-    mainTaskSpan.textContent = 'Main Task(s)'
-    taskDiv.appendChild(mainTaskSpan)
+    mainTaskSpan.textContent = 'Main Tasks';
+    mainTaskSpan.setAttribute('style','font-weight:500; font-size:20px; margin-bottom:10px');
+    taskHeader.appendChild(mainTaskSpan);
 
     const addTaskSpan = document.createElement('span');
-    addTaskSpan.id = `addTask_${company_id}`
-    addTaskSpan.setAttribute('style','font-size:15px;text-decoration:underline;cursor:pointer;')
+    addTaskSpan.id = `addTask_${jobId}`;
     addTaskSpan.textContent = 'Add Task';
-    addTaskSpan.addEventListener('click',addTask);
-    taskDiv.appendChild(addTaskSpan)
+    addTaskSpan.setAttribute('style','font-weight:700; font-size:12px;')
+    addTaskSpan.addEventListener('click',addTask)
+    taskHeader.appendChild(addTaskSpan);
 
-    const startLi = document.createElement('li');
-    startLi.setAttribute('style', 'display:flex;flex-direction:row; align-items:center;');
-    companyUl.appendChild(startLi);
+    const taskList = document.createElement('div');
+    taskList.id = `taskList_${jobId}`;
+    taskList.className = 'taskList'
+    taskList.setAttribute('style','display:flex;flex-direction:column; gap:20px;margin-bottom:10px;')
+    taskSection.appendChild(taskList);
+    
+    const newTask1ID = uuid();
+
+    const taskOneDiv = document.createElement('div');
+    taskOneDiv.id = `taskDiv_${newTask1ID}`;
+    taskOneDiv.setAttribute('style', 'display:flex; flex-direction:column; gap:5px');
+    taskList.appendChild(taskOneDiv);
+
+    const taskOneSpan = document.createElement('span');
+    taskOneSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
+    taskOneSpan.textContent = 'Task';
+    taskOneSpan.id = `tasks_${newTask1ID}`
+    taskOneDiv.appendChild(taskOneSpan);
+
+    const editTaskOne = document.createElement('span');
+    editTaskOne.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    editTaskOne.textContent = 'Edit';
+    editTaskOne.id = `editTask_${newTask1ID}`;
+    editTaskOne.addEventListener('click', editTask);
+    taskOneDiv.appendChild(editTaskOne);
+
+    const removeTaskOne = document.createElement('span');
+    removeTaskOne.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    removeTaskOne.textContent = 'Remove';
+    removeTaskOne.id = `removeTask_${newTask1ID}`;
+    removeTaskOne.addEventListener('click', removeTask);
+    taskOneDiv.appendChild(removeTaskOne);
+
+    const newTask2ID = uuid();
+    
+    const taskTwoDiv = document.createElement('div');
+    taskTwoDiv.id = `taskDiv_${newTask2ID}`;
+    taskTwoDiv.setAttribute('style', 'display:flex; flex-direction:column; gap:5px');
+    taskList.appendChild(taskTwoDiv);
+
+    const taskTwoSpan = document.createElement('span');
+    taskTwoSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
+    taskTwoSpan.textContent = 'Task';
+    taskTwoSpan.id = `tasks_${newTask2ID}`;
+    taskTwoDiv.appendChild(taskTwoSpan);
+
+    const editTaskTwo = document.createElement('span');
+    editTaskTwo.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    editTaskTwo.textContent = 'Edit';
+    editTaskTwo.id = `editTask_${newTask2ID}`;
+    editTaskTwo.addEventListener('click', editTask);
+    taskTwoDiv.appendChild(editTaskTwo);
+
+    const removeTaskTwo = document.createElement('span');
+    removeTaskTwo.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    removeTaskTwo.textContent = 'Remove';
+    removeTaskTwo.id = `removeTask_${newTask2ID}`;
+    removeTaskTwo.addEventListener('click', removeTask);
+    taskTwoDiv.appendChild(removeTaskTwo);
+
+
+    const newTask3ID = uuid();
+    
+    const taskThreeDiv = document.createElement('div');
+    taskThreeDiv.id = `taskDiv_${newTask3ID}`;
+    taskThreeDiv.setAttribute('style', 'display:flex; flex-direction:column; gap:5px');
+    taskList.appendChild(taskThreeDiv);
+
+    const taskThreeSpan = document.createElement('span');
+    taskThreeSpan.setAttribute('style','font-weight:500;font-size:15px;margin-left:10px;');
+    taskThreeSpan.textContent = 'Task';
+    taskThreeSpan.id = `tasks_${newTask3ID}`;
+    taskThreeDiv.appendChild(taskThreeSpan);
+
+    const editTaskThree = document.createElement('span');
+    editTaskThree.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    editTaskThree.textContent = 'Edit';
+    editTaskThree.id = `editTask_${newTask3ID}`;
+    editTaskThree.addEventListener('click', editTask);
+    taskThreeDiv.appendChild(editTaskThree);
+
+    const removeTaskThree = document.createElement('span');
+    removeTaskThree.setAttribute('style','font-weight:500;font-size:10px;margin-left:10px;');
+    removeTaskThree.textContent = 'Remove';
+    removeTaskThree.id = `removeTask_${newTask3ID}`;
+    removeTaskThree.addEventListener('click', removeTask);
+    taskThreeDiv.appendChild(removeTaskThree);
+
+    const startDiv = document.createElement('div');
+    startDiv.setAttribute('style','display:flex;align-items:baseline;justify-content:flex-start;gap:1%;');
+    jobDiv.appendChild(startDiv);
 
     const startSpan = document.createElement('span');
-    startSpan.id = `Start_${company_id}`;
-    startSpan.style.fontSize = '18px';
     startSpan.textContent = 'Starting Date';
-    startLi.appendChild(startSpan);
+    startSpan.setAttribute('style','font-weight:500;font-size:15px');
+    startSpan.id = `start_${jobId}`;
+    startDiv.appendChild(startSpan);
 
-    const editStart = document.createElement('span');
-    editStart.id = `editStart_${company_id}`;
-    editStart.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    editStart.addEventListener('click', changeStart);
-    editStart.textContent = 'Edit';
-    startLi.appendChild(editStart);
+    const startEdit = document.createElement('span');
+    startEdit.textContent = 'Edit';
+    startEdit.setAttribute('style','font-weight:500;font-size:10px');
+    startEdit.id = `editStart_${jobId}`;
+    startEdit.addEventListener('click',editStart);
+    startDiv.appendChild(startEdit);
 
-    const endLi = document.createElement('li');
-    endLi.setAttribute('style', 'display:flex;flex-direction:row; align-items:center;');
-    companyUl.appendChild(endLi);
+    const endDiv = document.createElement('div');
+    endDiv.setAttribute('style','display:flex;align-items:baseline;justify-content:flex-start;gap:1%;');
+    jobDiv.appendChild(endDiv);
 
     const endSpan = document.createElement('span');
-    endSpan.id = `End_${company_id}`;
-    endSpan.style.fontSize = '18px';
-    endSpan.textContent = 'Finishing Date';
-    endLi.appendChild(endSpan);
+    endSpan.textContent = 'Ending Date';
+    endSpan.setAttribute('style','font-weight:500;font-size:15px');
+    endSpan.id = `end_${jobId}`;
+    endDiv.appendChild(endSpan);
 
-    const editEnd = document.createElement('span');
-    editEnd.id = `editEnd_${company_id}`;
-    editEnd.setAttribute('style', 'font-size:15px;cursor:pointer;text-decoration:underline;');
-    editEnd.addEventListener('click', changeEnd);
-    editEnd.textContent = 'Edit';
-    endLi.appendChild(editEnd);
-
-    return companyUl
+    const endEdit = document.createElement('span');
+    endEdit.textContent = 'Edit';
+    endEdit.setAttribute('style','font-weight:500;font-size:10px');
+    endEdit.id = `editEnd_${jobId}`;
+    endEdit.addEventListener('click',editEnd);
+    endDiv.appendChild(endEdit);
 }
