@@ -74,6 +74,15 @@ body {
   gap:20px
 }
 
+.taskOne, .taskTwo, .taskThree, .tasks {
+  width: 300%;
+  min-height: 75px;
+  border-radius: 8px;
+  padding: 5px;
+  border: solid black;
+  border-width: 2px;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -92,7 +101,8 @@ input {
   width: 100%;
   border-radius: 4px;
   height: 20px;
-  
+  border: solid black;
+  border-width: 2px;  
 }
 
 button {

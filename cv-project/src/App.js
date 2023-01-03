@@ -1,22 +1,21 @@
-import React from "react"
-import { useState } from 'react';
+import React, {useState} from "react"
 import { HeadBar } from "./components/Headbar"
 import addSchool from "./components/addSchool"
-import editSchool from "./components/editSchool";
-import editStudy from "./components/editStudy";
-import editGraduation from "./components/editGraduation";
+import editSchool from "./components/editSchool"
+import editStudy from "./components/editStudy"
+import editGraduation from "./components/editGraduation"
 import persona from './components/Persona.jpg'
 import uuid from 'react-uuid'
 
 
 export function App () {
 
-    const id = uuid()
+    const id = uuid();
+    const validator = require("email-validator");
+
     const [fullName, setFullName] = useState('Your Name');
     const [phoneNumber, setPhoneNumber] = useState('Phone Number');
-    const [emailAdress, setEmailAdress] = useState('Email Adress');
-
-    const validator = require("email-validator");
+    const [emailAdress, setEmailAdress] = useState('Email Address');
 
     function personalInfo() {
 
@@ -34,15 +33,19 @@ export function App () {
       }
 
       if(validator.validate(email.value)){
-        setEmailAdress(`Email : ${email.value}`)
+        setEmailAdress(`Email : ${email.value}`);
       }
       else{
-        setEmailAdress("Enter a valid email adress")  
+        setEmailAdress("Enter a valid email address")  
       }
 
       if (firstName.value !== "" && surname.value !== "" && phone.value.length === 10 && validator.validate(email.value)){
         document.getElementById('personalInfoSpan').remove();      
         document.getElementById('personalInfoUl').remove();
+      }
+      if (!document.getElementById('educationInfoSpan') && !document.getElementById('jobInfoSpan') && !document.getElementById('personalInfoSpan')){
+        document.querySelector('.cvForm').remove();
+        document.querySelector('.cvInfo').setAttribute('style','width:100%');
       }
     }
 
@@ -82,19 +85,26 @@ export function App () {
 
     const [companyName, setCompanyName] = useState('Company Name');
     const [jobTitle, setJob] = useState('Job Title');
-    const [mainTasks, setTasks] = useState('-');
-    const [startDate, setStart] = useState('Start Date')
-    const [endDate, setEnd] = useState('End Date')
+    const [task1, setTask1] = useState('Task One');
+    const [task2, setTask2] = useState('Task Two');
+    const [task3, setTask3] = useState('Task Three');
+    const [startDate, setStart] = useState('Starting Date');
+    const [endDate, setEnd] = useState('Ending Date');
+    
+    const task1ID = uuid();
+    const task2ID = uuid();
+    const task3ID = uuid();
 
     function experienceInfo () {
      
-
       const company = document.getElementById('company');
       const job = document.getElementById('job');
-      const tasks = document.getElementById('tasks');
-      const start = document.getElementById('start');
-      const end = document.getElementById('end')
+      const taskOne = document.querySelector('.taskOne');
+      const taskTwo = document.querySelector('.taskTwo');
+      const taskThree = document.querySelector('.taskThree');
 
+      const start = document.getElementById('start');
+      const end = document.getElementById('end');
 
       if(company.value !== ""){
         setCompanyName(company.value);
@@ -102,8 +112,16 @@ export function App () {
       if(job.value !== ""){
         setJob(job.value);
       }
-      if(tasks.value !== ""){
-        setTasks(tasks.value);
+      if(taskOne.textContent !== ""){
+        setTask1(taskOne.textContent);
+      }
+
+      if(taskTwo.textContent !== ""){
+        setTask2(taskTwo.textContent);
+      }
+
+      if(taskThree.textContent !== ""){
+        setTask3(taskThree.textContent);
       }
 
       if (start.value !== "") {
@@ -117,9 +135,8 @@ export function App () {
         const month = date.toLocaleString('default', { month: 'long' });
         setEnd(`Ending date: ${month.slice(0,3)} ${date.getFullYear()}`);
       }
-
       
-      if (company.value !== "" && job.value !== "" && tasks.value){
+      if (company.value !== "" && job.value !== "" && task1.textContent !== "" && task2.textContent !== "" && task3.textContent !== "" ){
         document.getElementById('jobInfoSpan').remove();      
         document.getElementById('experienceUl').remove();
       }
@@ -151,7 +168,7 @@ export function App () {
                       <input type='number' id='phone'></input>
                   </li>
                   <li>
-                      <label>Email Adress</label>
+                      <label>Email Address</label>
                       <input id='email'></input>
                   </li>
                   <button type="button" style={{cursor:'pointer'}} onClick={personalInfo}>Add Personal Info</button>
@@ -184,7 +201,9 @@ export function App () {
                 </li>
                 <li>
                   <label>Main Tasks</label>
-                  <textarea id='tasks'></textarea>
+                  <div className='taskOne' id={`tasks_${uuid()}`} contentEditable></div>
+                  <div className='taskTwo' id={`tasks_${uuid()}`} contentEditable></div>
+                  <div className='taskThree' id={`tasks_${uuid()}`} contentEditable></div>
                 </li>
                 <li>
                   <label>Start Date</label>
@@ -244,7 +263,9 @@ export function App () {
                 <div style={{display:'flex', alignItems:'baseline', justifyContent:'flex-start', gap:'1%'}}>
                   <div style={{display:'flex',flexDirection:'column'}}>
                     <span style={{fontWeight:'500', fontSize:'20px'}} id={`graduation_${id}`}>Main Tasks</span>
-                    <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${id}`}>{mainTasks}</span>
+                    <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task1ID}`}>{task1}</span>
+                    <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task2ID}`}>{task2}</span>
+                    <span style={{fontWeight:'500', fontSize:'15px',marginLeft:'10px'}} id={`tasks_${task3ID}`}>{task3}</span>
                   </div>
                   <span style={{fontWeight:'500', fontSize:'10px'}} id={`editGraduation_${id}`} onClick={editGraduation}>Edit</span>
                 </div>
